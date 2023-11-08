@@ -5,8 +5,11 @@
         <div class="left">
           <h1>UXTIFY</h1>
         </div>
-        <div @click="open" class="menu"  >
+        <div @click="open" class="menu"  v-if="!isOpen">
           <Menu />
+        </div>
+        <div @click="open" class="menu"  v-else>
+          <Close />
         </div>
         <div v-show="isOpen" class="bb">
             <Sidebar />
@@ -43,6 +46,7 @@
 
 <script setup>
 import Menu from './icons/Menu.vue';
+import Close from './icons/Close.vue';
 import { ref } from 'vue';
 import Sidebar from './Sidebar.vue';
 const isOpen = ref(false)
